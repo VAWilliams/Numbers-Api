@@ -1,0 +1,22 @@
+* {
+  padding: 3%; }
+
+#container {
+  display: grid;
+  width: 50%;
+  margin: auto; }
+  #container * {
+    padding: 5%; }
+  #container input {
+    text-align: center; }
+  #container button {
+    background-color: slateblue;
+    color: white;
+    font-size: 20px; }
+
+#output {
+  background-color: slategrey;
+  padding: 5%;
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */
