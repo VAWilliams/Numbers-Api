@@ -1,10 +1,9 @@
-let defNum = Math.round(Math.random() * 9999);
-let url = `http://numbersapi.com/${defNum}/math`
-
-function doRand(){
-
+function populateOutput(
+    randomNumber = Math.round(Math.random() * 9999, url)
+)
+{
     $.ajax({
-        url: url,
+        url: `http://numbersapi.com/${randomNumber}/math`,
         method: 'GET',
         success: function (response) {
             $('#output').text(response)
@@ -12,12 +11,16 @@ function doRand(){
     })
 }
 
-doRand();
+function isInputValid() {
+    return $('#get').val().length <= 4 && (Number.isInteger(newNumber)
+}
 
-$('#button').bind('click', function (newNum) {
-    newNum = Number($('#get').val());
-    url = `http://numbersapi.com/${newNum}/math`
-    if (($('#get').val().length <= 4) && (Number.isInteger(newNum))) {
-        doRand();
+populateOutput();
+
+$('#button').click(function (newNumber) {
+    newNumber = Number($('#get').val());
+    url = `http://numbersapi.com/${newNumber}/math`
+    if (isInputValid) {
+        populateOutput(newNumber, url);
     }
 })
