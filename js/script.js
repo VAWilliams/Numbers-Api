@@ -1,5 +1,5 @@
 function populateOutput(
-    randomNumber = Math.round(Math.random() * 9999, url)
+    randomNumber = Math.round(Math.random() * 9999)
 )
 {
     $.ajax({
@@ -19,8 +19,7 @@ populateOutput();
 
 $('#button').click(function (newNumber) {
     newNumber = Number($('#get').val());
-    url = `http://numbersapi.com/${newNumber}/math`
     if (isInputValid) {
-        populateOutput(newNumber, url);
+        populateOutput(newNumber);
     }
 })
