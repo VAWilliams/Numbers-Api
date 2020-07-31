@@ -1,24 +1,29 @@
-function is_value_valid ($value) {
-    return $value.length <= 4 && (Number.isInteger(Number($value)));
+function isValid(value) {
+    let { length }    = value;
+    let { isInteger } = Number;
+    return length <= 4 && isInteger(Number(value));
 }
 
-function populate_output(number = Math.round(Math.random() * 9999)) {
-    number = Number(number);
+function populateOutput(seed) {
     $.ajax({
-        url: `http://numbersapi.com/${number}/math`,
+        url: `http://numbersapi.com/${Number(seed)}/math`,
         method: 'GET',
         success: function (response) {
-            $('#output').text(response)
+            $('#output').text(response);
         }
-    })
+    });
 }
 
-$(window).load(populate_output);
+$(document).ready(function() {
+    let { round, random } = Math;
+    let number = round(random() * 9999);
+    populateOutput(number);
+});
 
 $('#button').click(function () {
-    
-    var input = $('#get').val();
-    if (!is_value_valid(input) { return; }
-    populate_output(input);
-    
+    let input = $('#input').val();
+    if (!isValid(input)) {
+        return;
+    }
+    populateOutput(input);
 });
