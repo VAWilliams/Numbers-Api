@@ -1,22 +1,61 @@
+:root {
+  --primary-color: rgba(0, 0, 0, 0.900);
+}
 * {
-  padding: 3%; }
+  font-family: monospace;
+  border: none;
+}
 
 #container {
   display: grid;
-  width: 50%;
-  margin: auto; }
-  #container * {
-    padding: 5%; }
-  #container input {
-    text-align: center; }
-  #container button {
-    background-color: slateblue;
-    color: white;
-    font-size: 20px; }
+  width: 300px;
+  padding: 30px;
+  margin: 30px auto;
+}
+#container * {
+  padding: 5%;
+}
+input {
+  text-align: center;
+  border: 1px var(--primary-color) solid;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+}
+button {
+  position: relative;
+  border-radius: 50px 50px 0 0;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 20px;
+  transition: transform 300ms ease-in;
+  cursor: pointer;
+}
+button:hover {
+    transform: scale(1.05);
+    border: none;
+}
+button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 298px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border: 1px var(--primary-color) solid;
+  border-top: none;
+  border-bottom: none;
+}
 
 #output {
-  background-color: slategrey;
-  padding: 5%;
-  color: white; }
+  background-color: var(--primary-color);
+  padding: 30px;
+  margin: auto;
+  font-size: 20px;
+  border-radius: 50px;
+  color: white;
+  width: 300px;
+}
 
 /*# sourceMappingURL=style.css.map */
